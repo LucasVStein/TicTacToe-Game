@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <limits>
 
 int main() {
 
@@ -9,8 +10,38 @@ int main() {
 
     std::cout << "Enter 1 to start the game OR 0 to exit: ";
 
-    int input;
+    char input;
     std::cin >> input;
+
+    if(input == '0') {
+        std::cout << "Thank you for playing. Cya next time!" << std::endl;
+        return 0;
+    }
+    else if(input != '1') {
+
+        while(input != '1' && input != '0') {
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // clean the input buffer
+            std::cout << "Thats the wrong input. Pls enter 1 to play or 0 to exit the game: ";
+            std::cin >> input;
+        }
+
+        if(input == '0') {
+            std::cout << "Thank you for playing. Cya next time!" << std::endl;
+            return 0;
+        }
+    }
+
+    // Present the game map to the players
+
+    std::cout << "Pls use the following mapping to select cells to play:\n" << std::endl;
+
+    std::cout << " (1) | (2) | (3) " << std::endl;
+    std::cout << "-----------------" << std::endl;
+    std::cout << " (4) | (5) | (6) " << std::endl;
+    std::cout << "-----------------" << std::endl;
+    std::cout << " (7) | (8) | (9) \n" << std::endl;
+
+    // Game logic begins
 
     return 0;
 
