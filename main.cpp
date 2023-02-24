@@ -6,7 +6,7 @@
 
 int main() {
 
-    std::cout << "//////////////////////////////////////////////////" << std::endl;
+    std::cout << "\n//////////////////////////////////////////////////" << std::endl;
     std::cout << "/// WELCOME TO THE GAME TIC-TAC-TOE" << std::endl;
     std::cout << "////////////////////////////////////////" << std::endl << std::endl;
 
@@ -33,7 +33,13 @@ int main() {
         }
     }
 
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     // Present the game map to the players
+
+    std::cout << "\n//////////////////////" << std::endl;
+    std::cout << "/// INSTRUCTIONS" << std::endl;
+    std::cout << "//////////////////" << std::endl << std::endl;
 
     std::cout << "Pls use the following mapping to select cells to play:\n" << std::endl;
 
@@ -46,13 +52,15 @@ int main() {
     std::cout << "Player 1 is 'O'." << std::endl;
     std::cout << "Player 2 is 'X'.\n" << std::endl;
 
+    std::cout << "//////////////////" << std::endl << std::endl;
+
     // Game logic begins
     GameState game;
 
     /* game.outputMap();
-    game.makePlay(5);
-    std::cout << '\n';
-    game.makePlay(6);
+    int x = game.askInput();
+    std::cout << '\n' << x << '\n';
+    game.makePlay(x);
     std::cout << '\n';
     game.outputMap(); */
 

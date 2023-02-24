@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <limits>
 
 class GameState {
 
@@ -12,5 +13,6 @@ public:
     std::vector<char> getMap();
     void outputMap();
     void makePlay(int pos);
+    int askInput();
 
 };
