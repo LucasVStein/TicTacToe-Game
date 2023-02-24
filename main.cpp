@@ -2,6 +2,8 @@
 #include <vector>
 #include <limits>
 
+#include "GameState.h"
+
 int main() {
 
     std::cout << "//////////////////////////////////////////////////" << std::endl;
@@ -40,6 +42,9 @@ int main() {
     std::cout << " (4) | (5) | (6) " << std::endl;
     std::cout << "-----------------" << std::endl;
     std::cout << " (7) | (8) | (9) \n" << std::endl;
+
+    std::cout << "Player 1 is 'O'." << std::endl;
+    std::cout << "Player 2 is 'X'.\n" << std::endl;
 
     // Game logic begins
 
