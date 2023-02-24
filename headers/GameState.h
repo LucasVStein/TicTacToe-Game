@@ -14,5 +14,7 @@ public:
     void outputMap();
     void makePlay(int pos);
     int askInput();
+    bool winningCondition();
+    void switchPlayer();
 
 };

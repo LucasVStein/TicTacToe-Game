@@ -57,12 +57,17 @@ int main() {
     // Game logic begins
     GameState game;
 
-    /* game.outputMap();
-    int x = game.askInput();
-    std::cout << '\n' << x << '\n';
-    game.makePlay(x);
-    std::cout << '\n';
-    game.outputMap(); */
+    game.outputMap();
+    std::cout << std::endl;
+
+    while(!game.winningCondition()) {
+        int play = game.askInput();
+        game.makePlay(play);
+
+        std::cout << std::endl;
+        game.outputMap();
+        std::cout << std::endl;
+    }
 
     return 0;
 

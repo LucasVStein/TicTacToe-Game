@@ -2,7 +2,7 @@
 
 GameState::GameState() {
     game_map = std::vector<char>(9, ' ');
-    curr_player = 'O';
+    curr_player = 'X';
 }
 
 std::vector<char> GameState::getMap() {
@@ -20,11 +20,6 @@ void GameState::outputMap() {
 void GameState::makePlay(int pos) {
     if(pos > 0 && pos < 10)
         game_map[pos-1] = curr_player;
-
-    if(curr_player == 'O') 
-        curr_player = 'X';
-    else
-        curr_player = 'O';
 }
 
 int GameState::askInput() {
@@ -64,4 +59,36 @@ int GameState::askInput() {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     return (int)input-48;
+}
+
+bool GameState::winningCondition() {
+
+    // iterate horizontally
+    for(int ite = 0; ite < game_map.size(); ite += 3) {
+        if(game_map[ite] == curr_player && game_map[ite+1] == curr_player && game_map[ite+2] == curr_player)
+            return true;
+    }
+
+    // iterate vertically
+    for(int ite = 0; ite < 3; ite++) {
+        if(game_map[ite] == curr_player && game_map[ite+3] == curr_player && game_map[ite+6] == curr_player)
+            return true;
+    }
+
+    // iterate diagonally
+    if(game_map[0] == curr_player && game_map[4] == curr_player && game_map[8] == curr_player)
+            return true;
+    else if(game_map[2] == curr_player && game_map[4] == curr_player && game_map[6] == curr_player)
+            return true;
+    
+    switchPlayer();
+    
+    return false;
+}
+
+void GameState::switchPlayer() {
+    if(curr_player == 'O') 
+        curr_player = 'X';
+    else
+        curr_player = 'O';
 }
