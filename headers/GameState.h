@@ -20,4 +20,7 @@ public:
     bool validInput(char input) const;
     const int getWinner() const;
 
+    const int play();
+    void reset();
+
 };

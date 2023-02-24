@@ -112,3 +112,24 @@ const int GameState::getWinner() const {
     else
         return 2;
 }
+
+const int GameState::play() {
+    outputMap();
+    std::cout << std::endl;
+
+    while(!winningCondition()) {
+        int play = askInput();
+        makePlay(play);
+
+        std::cout << std::endl;
+        outputMap();
+        std::cout << std::endl;
+    }
+
+    return getWinner();
+}
+
+void GameState::reset() {
+    game_map = std::vector<char>(9, ' ');
+    curr_player = 'X';
+}

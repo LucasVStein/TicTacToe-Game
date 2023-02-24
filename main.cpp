@@ -57,21 +57,36 @@ int main() {
     // Game logic begins
     GameState game;
 
-    game.outputMap();
-    std::cout << std::endl;
+    bool repeatGame = true;
+    while(repeatGame) {
+        int winner = game.play();
 
-    while(!game.winningCondition()) {
-        int play = game.askInput();
-        game.makePlay(play);
+        std::cout << "////////////////////////////////////////////////" << std::endl;
+        std::cout << "/// THE WINNER OF THE GAME IS PLAYER " << winner << std::endl;
+        std::cout << "//////////////////////////////////////////" << std::endl << std::endl;
 
-        std::cout << std::endl;
-        game.outputMap();
-        std::cout << std::endl;
+        game.reset();
+
+        char r = ' ';
+        bool err = false;
+        while(r != 'y' && r != 'Y' && r != 'n' && r != 'N') {
+            if(err) { std::cout << "Invalid input. "; }
+
+            std::cout << "Do you wish to play again? (y/n) ";
+
+            std::cin >> r;
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+            if(r == 'n' || r == 'N')
+                repeatGame = false;
+            else if(r != 'y' && r != 'Y')
+                repeatGame = true;
+            
+            std::cout << std::endl;
+        }
     }
 
-    std::cout << "\n////////////////////////////////////////////////" << std::endl;
-    std::cout << "/// THE WINNER OF THE GAME IS PLAYER " << game.getWinner() << std::endl;
-    std::cout << "//////////////////////////////////////////" << std::endl << std::endl;
+    std::cout << "Thank you for playing. Cya next time!\n" << std::endl;
 
     return 0;
 
