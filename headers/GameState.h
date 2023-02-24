@@ -10,11 +10,12 @@ class GameState {
 public:
 
     GameState();
-    std::vector<char> getMap();
-    void outputMap();
+    const std::vector<char> getMap() const;
+    void outputMap() const;
     void makePlay(int pos);
-    int askInput();
+    int askInput() const;
     bool winningCondition();
     void switchPlayer();
+    bool validInput(char input) const;
 
 };

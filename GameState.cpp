@@ -5,11 +5,11 @@ GameState::GameState() {
     curr_player = 'X';
 }
 
-std::vector<char> GameState::getMap() {
+const std::vector<char> GameState::getMap() const {
     return game_map;
 }
 
-void GameState::outputMap() {
+void GameState::outputMap() const {
 
     printf(" ( %c ) | ( %c ) | ( %c ) \n", game_map.at(0), game_map.at(1), game_map.at(2));
     printf(" ( %c ) | ( %c ) | ( %c ) \n", game_map.at(3), game_map.at(4), game_map.at(5));
@@ -22,24 +22,16 @@ void GameState::makePlay(int pos) {
         game_map[pos-1] = curr_player;
 }
 
-int GameState::askInput() {
+int GameState::askInput() const {
 
     char input = ' ';
     bool err = false;
 
-    while(input != '1' &&
-          input != '2' &&
-          input != '3' &&
-          input != '4' &&
-          input != '5' &&
-          input != '6' &&
-          input != '7' &&
-          input != '8' &&
-          input != '9') {
+    while(!validInput(input)) {
 
         if(err) {
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Invalid input. Pls select a position between 1 and 9.\n";
+            std::cout << "Invalid input. Pls select a position between 1 and 9 that is not already occupied.\n";
         }
 
         std::cout << "Player ";
@@ -91,4 +83,21 @@ void GameState::switchPlayer() {
         curr_player = 'X';
     else
         curr_player = 'O';
+}
+
+bool GameState::validInput(char input) const {
+    if(input != '1' &&
+       input != '2' &&
+       input != '3' &&
+       input != '4' &&
+       input != '5' &&
+       input != '6' &&
+       input != '7' &&
+       input != '8' &&
+       input != '9')
+       return false;
+    else if(game_map[(int)input-49] != ' ')
+        return false;
+
+    return true;
 }
