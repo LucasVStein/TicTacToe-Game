@@ -2,7 +2,7 @@
 #include <vector>
 #include <limits>
 
-#include "GameState.h"
+#include "headers/GameState.h"
 
 int main() {
 
@@ -47,6 +47,14 @@ int main() {
     std::cout << "Player 2 is 'X'.\n" << std::endl;
 
     // Game logic begins
+    GameState game;
+
+    /* game.outputMap();
+    game.makePlay(5);
+    std::cout << '\n';
+    game.makePlay(6);
+    std::cout << '\n';
+    game.outputMap(); */
 
     return 0;
 
