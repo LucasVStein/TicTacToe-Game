@@ -101,3 +101,14 @@ bool GameState::validInput(char input) const {
 
     return true;
 }
+
+const char GameState::getPlayer() const {
+    return curr_player;
+}
+
+const int GameState::getWinner() const {
+    if(curr_player == 'O') 
+        return 1;
+    else
+        return 2;
+}

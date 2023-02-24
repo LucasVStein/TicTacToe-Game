@@ -69,6 +69,10 @@ int main() {
         std::cout << std::endl;
     }
 
+    std::cout << "\n////////////////////////////////////////////////" << std::endl;
+    std::cout << "/// THE WINNER OF THE GAME IS PLAYER " << game.getWinner() << std::endl;
+    std::cout << "//////////////////////////////////////////" << std::endl << std::endl;
+
     return 0;
 
 }
