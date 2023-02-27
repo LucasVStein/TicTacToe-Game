@@ -80,7 +80,7 @@ int main() {
             if(r == 'n' || r == 'N')
                 repeatGame = false;
             else if(r != 'y' && r != 'Y')
-                repeatGame = true;
+                err = true;
             
             std::cout << std::endl;
         }

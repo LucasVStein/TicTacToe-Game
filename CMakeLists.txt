@@ -3,4 +3,4 @@ project(TicTacToe)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(tictactoeGame main.cpp GameState.cpp)
+add_executable(tttgame main.cpp GameState.cpp)
